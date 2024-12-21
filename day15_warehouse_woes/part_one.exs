@@ -128,7 +128,7 @@ defmodule AdventOfCode.Day15.PartOne do
       |> String.split("\n\n", trim: true)
 
     warehouse_map = parse_map(raw_warehouse_map)
-    direction = print_direction(raw_direction)
+    direction = parse_direction(raw_direction)
     %{warehouse_map: warehouse_map, directions: direction}
   end
 
@@ -139,8 +139,8 @@ defmodule AdventOfCode.Day15.PartOne do
     |> Enum.map(&String.graphemes/1)
   end
 
-  @spec print_direction(String.t()) :: list(direction())
-  defp print_direction(input) do
+  @spec parse_direction(String.t()) :: list(direction())
+  defp parse_direction(input) do
     input
     |> String.split("\n", trim: true)
     |> Enum.flat_map(&String.graphemes/1)
